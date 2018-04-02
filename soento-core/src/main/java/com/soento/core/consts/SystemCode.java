@@ -11,11 +11,15 @@ public class SystemCode {
      */
     public static final String SUCCESS = "0000";
     /**
-     * E9996：用户未登录或者无访问权限
+     * E9995：用户名或密码错误
+     */
+    public static final String E9995 = "E9995";
+    /**
+     * E9996：访问令牌失效
      */
     public static final String E9996 = "E9996";
     /**
-     * E9997：无访问权限，请与管理员联系
+     * E9997：无访问权限
      */
     public static final String E9997 = "E9997";
     /**
