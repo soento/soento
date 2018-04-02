@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+    <property name="LOG_PATTERN"
+              value="${LOG_PATTERN:-%d{yyyy-MM-dd HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39}[%line] : %m%n}"/>
+
+    <!-- 控制台输出 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+    <!--ERROR日志 -->
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_ROOT}/error.log</file>
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_ROOT}/%d{yyyy-MM-dd}/error-%i.log</fileNamePattern>
+            <maxFileSize>20MB</maxFileSize>
+            <!--<maxHistory>60</maxHistory>-->
+            <!--<totalSizeCap>20GB</totalSizeCap>-->
+        </rollingPolicy>
+    </appender>
+    <!--FILE日志 -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_ROOT}/info.log</file>
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_ROOT}/%d{yyyy-MM-dd}/info-%i.log</fileNamePattern>
+            <maxFileSize>20MB</maxFileSize>
+            <!--<maxHistory>60</maxHistory>-->
+            <!--<totalSizeCap>20GB</totalSizeCap>-->
+        </rollingPolicy>
+    </appender>
+    <!-- 日志输出等级 -->
+    <logger name="org.apache" level="INFO"/>
+    <logger name="org.jboss" level="INFO"/>
+    <logger name="org.mybatis" level="INFO"/>
+    <logger name="org.hibernate" level="INFO"/>
+    <logger name="org.springframework" level="INFO"/>
+</included>
