@@ -27,7 +27,7 @@ import java.util.List;
 @EnableScheduling
 @EnableAsync
 @ComponentScan(basePackages = {"com.soento"})
-public class WebApplication extends SpringBootServletInitializer {
+public abstract class WebApplication extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {

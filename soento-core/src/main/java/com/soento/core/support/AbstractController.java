@@ -18,7 +18,7 @@ import java.util.Map;
 /**
  * @author soento
  */
-public class BaseController {
+public abstract class AbstractController {
     @Autowired
     protected MessageSourceAccessor msa;
 
@@ -106,8 +106,8 @@ public class BaseController {
         return Resp.builder().head(head).build();
     }
 
-    protected static BaseController.ModelAndViewBuilder builder() {
-        return new BaseController.ModelAndViewBuilder();
+    protected static AbstractController.ModelAndViewBuilder builder() {
+        return new AbstractController.ModelAndViewBuilder();
     }
 
     protected static class ModelAndViewBuilder {
@@ -118,12 +118,12 @@ public class BaseController {
 
         }
 
-        public BaseController.ModelAndViewBuilder view(String view) {
+        public AbstractController.ModelAndViewBuilder view(String view) {
             this.view = view;
             return this;
         }
 
-        public BaseController.ModelAndViewBuilder addObject(String key, Object value) {
+        public AbstractController.ModelAndViewBuilder addObject(String key, Object value) {
             if (model == null) {
                 model = new HashMap<>(16);
             }

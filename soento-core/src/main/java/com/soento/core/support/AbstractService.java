@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * @author yantao.zeng
  */
-public class BaseService {
+public abstract class AbstractService {
     @Autowired
     protected MessageSourceAccessor msa;
 }

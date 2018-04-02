@@ -2,7 +2,7 @@ package com.juneyao.demo.web.controller;
 
 import com.juneyao.demo.web.mapper.TestMapper;
 import com.soento.core.consts.SystemCode;
-import com.soento.core.support.BaseController;
+import com.soento.core.support.AbstractController;
 import com.soento.core.support.SpringHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Slf4j
 @Controller
-public class TestController extends BaseController {
+public class TestController extends AbstractController {
 
     @Autowired
     private TestMapper testMapper;
