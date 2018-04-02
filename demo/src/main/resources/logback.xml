@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <property name="LOG_ROOT" value="/logs/demo"/>
+    <include resource="soento-logback.xml"/>
+    <logger name="com.juneyao" level="DEBUG"/>
+    <root level="DEBUG">
+        <appender-ref ref="ERROR"/>
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>

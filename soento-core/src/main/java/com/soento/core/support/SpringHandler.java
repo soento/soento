@@ -5,6 +5,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.EmbeddedValueResolverAware;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringValueResolver;
 
 /**
@@ -13,6 +14,7 @@ import org.springframework.util.StringValueResolver;
  * @author soento
  */
 @Slf4j
+@Component
 public class SpringHandler implements ApplicationContextAware, EmbeddedValueResolverAware {
     private final static String START = "${";
     private final static String END = "}";

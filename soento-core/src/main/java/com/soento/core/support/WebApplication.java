@@ -1,17 +1,20 @@
-package com.soento.core.config;
+package com.soento.core.support;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.soento.core.support.MessageSourceAccessor;
-import com.soento.core.support.MultipleMessageSource;
 import com.soento.core.util.JsonUtil;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.filter.CharacterEncodingFilter;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +22,17 @@ import java.util.List;
 /**
  * @author yantao.zeng
  */
-@Configuration
-public class WebMvcConfig extends WebMvcConfigurationSupport {
+@EnableTransactionManagement
+@SpringBootApplication
+@EnableScheduling
+@EnableAsync
+@ComponentScan(basePackages = {"com.soento"})
+public class WebApplication extends SpringBootServletInitializer {
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(this.getClass());
+    }
 
     @Bean
     public FilterRegistrationBean characterEncodingFilterRegistration() {
@@ -45,7 +57,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
     }
 
     @Bean
-    public MessageSourceAccessor messageSourceAccessor(ReloadableResourceBundleMessageSource messageSource) throws Exception {
+    public MessageSourceAccessor messageSourceAccessor(ReloadableResourceBundleMessageSource messageSource) {
         return new MessageSourceAccessor(messageSource);
     }
 
