@@ -5,6 +5,7 @@ import com.soento.cms.common.service.CommonService;
 import com.soento.cms.core.lang.AuthModel;
 import com.soento.cms.core.lang.Menu;
 import com.soento.cms.core.lang.Role;
+import com.soento.cms.core.support.BaseService;
 import com.soento.core.lang.LoginUser;
 import com.soento.core.lang.Privilege;
 import com.soento.core.util.JsonUtil;
@@ -19,7 +20,7 @@ import java.util.List;
  */
 @Slf4j
 @Service
-public class CommonServiceImpl  implements CommonService {
+public class CommonServiceImpl extends BaseService implements CommonService {
     @Override
     public LoginUser doLogin(LoginReq req) {
         // TODO
@@ -41,6 +42,18 @@ public class CommonServiceImpl  implements CommonService {
         log.debug("用户权限列表：{}", JsonUtil.toJson(privileges));
         result.setPrivileges(privileges);
         List<Menu> meuns = new ArrayList<>();
+        Menu menu = new Menu();
+        menu.setLink("/tools");
+        menu.setText("开发工具");
+        menu.setName("devtools");
+        List<Menu> subMenus = new ArrayList<>();
+        Menu sub = new Menu();
+        sub.setLink("/tools/mybatis");
+        sub.setText("Mybatis工具");
+        sub.setName("mybatis");
+        subMenus.add(sub);
+        menu.setChildren(subMenus);
+        meuns.add(menu);
         log.debug("用户菜单列表：{}", JsonUtil.toJson(meuns));
         result.setMenus(meuns);
         List<String> auths = new ArrayList<>();
