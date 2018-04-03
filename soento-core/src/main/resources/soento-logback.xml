@@ -60,4 +60,5 @@
     <logger name="com.alibaba" level="INFO"/>
     <logger name="druid.sql" level="INFO"/>
     <logger name="org.springframework" level="INFO"/>
+    <logger name="freemarker.cache" level="INFO"/>
 </included>

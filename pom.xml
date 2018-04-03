@@ -18,6 +18,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>demo</module>
         <module>soento-dependencies</module>
         <module>soento-core</module>
         <module>soento-cms</module>

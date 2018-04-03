@@ -29,7 +29,7 @@ import java.util.List;
 @EnableScheduling
 @EnableCaching
 @EnableAsync
-@MapperScan(basePackages = {"com.soento"})
+@MapperScan(basePackages = {"com.soento.**.dao"})
 @ComponentScan(basePackages = {"com.soento"})
 public abstract class WebApplication extends SpringBootServletInitializer {
 
