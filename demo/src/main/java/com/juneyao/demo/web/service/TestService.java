@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class T extends AbstractService {
+public class TestService extends AbstractService {
     @Autowired
     private TestMapper testMapper;
 

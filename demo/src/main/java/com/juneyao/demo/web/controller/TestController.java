@@ -1,6 +1,6 @@
 package com.juneyao.demo.web.controller;
 
-import com.juneyao.demo.web.service.T;
+import com.juneyao.demo.web.service.TestService;
 import com.soento.core.annotation.MethodLog;
 import com.soento.core.consts.SystemCode;
 import com.soento.core.handler.RedisHandler;
@@ -18,7 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class TestController extends AbstractController {
 
     @Autowired
-    private T testService;
+    private TestService testService;
 
     @RequestMapping("/")
     public ModelAndView index() {
