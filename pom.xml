@@ -20,6 +20,7 @@
     <modules>
         <module>soento-dependencies</module>
         <module>soento-core</module>
+        <module>soento-cms</module>
     </modules>
     <properties>
         <soento.version>1.0.0-SNAPSHOT</soento.version>
@@ -30,6 +31,11 @@
             <dependency>
                 <groupId>com.soento</groupId>
                 <artifactId>soento-core</artifactId>
+                <version>${soento.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.soento</groupId>
+                <artifactId>soento-cms</artifactId>
                 <version>${soento.version}</version>
             </dependency>
         </dependencies>

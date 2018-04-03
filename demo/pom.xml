@@ -17,7 +17,7 @@
     <dependencies>
         <dependency>
             <groupId>com.soento</groupId>
-            <artifactId>soento-core</artifactId>
+            <artifactId>soento-cms</artifactId>
         </dependency>
         <!-- Provided -->
         <dependency>

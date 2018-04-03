@@ -1,6 +1,7 @@
 package com.juneyao.demo.web.controller;
 
 import com.juneyao.demo.web.mapper.TestMapper;
+import com.soento.core.annotation.MethodLog;
 import com.soento.core.consts.SystemCode;
 import com.soento.core.handler.RedisHandler;
 import com.soento.core.support.AbstractController;
@@ -26,13 +27,14 @@ public class TestController extends AbstractController {
 
     @RequestMapping("test")
     @ResponseBody
+    @MethodLog("测试")
     public Object test() {
         String msg = msa.getMessage(SystemCode.SUCCESS);
         log.info(msg);
         log.info(SpringHandler.getValue("mybatis.mapper-locations"));
-        log.info((String)RedisHandler.get("aa"));
+        log.info((String) RedisHandler.get("aa"));
         RedisHandler.set("aa", "bbbbb");
-        log.info((String)RedisHandler.get("aa"));
+        log.info((String) RedisHandler.get("aa"));
         return success(testMapper.getAll());
     }
 }
