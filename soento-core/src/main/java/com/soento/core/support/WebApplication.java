@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
@@ -25,6 +26,7 @@ import java.util.List;
 @EnableTransactionManagement
 @SpringBootApplication
 @EnableScheduling
+@EnableCaching
 @EnableAsync
 @ComponentScan(basePackages = {"com.soento"})
 public abstract class WebApplication extends SpringBootServletInitializer {

@@ -2,8 +2,9 @@ package com.juneyao.demo.web.controller;
 
 import com.juneyao.demo.web.mapper.TestMapper;
 import com.soento.core.consts.SystemCode;
+import com.soento.core.handler.RedisHandler;
 import com.soento.core.support.AbstractController;
-import com.soento.core.support.SpringHandler;
+import com.soento.core.handler.SpringHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +30,9 @@ public class TestController extends AbstractController {
         String msg = msa.getMessage(SystemCode.SUCCESS);
         log.info(msg);
         log.info(SpringHandler.getValue("mybatis.mapper-locations"));
+        log.info((String)RedisHandler.get("aa"));
+        RedisHandler.set("aa", "bbbbb");
+        log.info((String)RedisHandler.get("aa"));
         return success(testMapper.getAll());
     }
 }
