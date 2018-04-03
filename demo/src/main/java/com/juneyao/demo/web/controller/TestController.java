@@ -1,11 +1,11 @@
 package com.juneyao.demo.web.controller;
 
-import com.juneyao.demo.web.mapper.TestMapper;
+import com.juneyao.demo.web.service.T;
 import com.soento.core.annotation.MethodLog;
 import com.soento.core.consts.SystemCode;
 import com.soento.core.handler.RedisHandler;
-import com.soento.core.support.AbstractController;
 import com.soento.core.handler.SpringHandler;
+import com.soento.core.support.AbstractController;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class TestController extends AbstractController {
 
     @Autowired
-    private TestMapper testMapper;
+    private T testService;
 
     @RequestMapping("/")
     public ModelAndView index() {
@@ -35,6 +35,8 @@ public class TestController extends AbstractController {
         log.info((String) RedisHandler.get("aa"));
         RedisHandler.set("aa", "bbbbb");
         log.info((String) RedisHandler.get("aa"));
-        return success(testMapper.getAll());
+        log.info(testService.nextseq("SEQ_TEST"));
+        log.info(testService.nextseq("SEQ_TEST", "CTTT"));
+        return success(testService.getAll());
     }
 }

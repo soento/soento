@@ -2,6 +2,7 @@ package com.soento.core.support;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.soento.core.util.JsonUtil;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -28,6 +29,7 @@ import java.util.List;
 @EnableScheduling
 @EnableCaching
 @EnableAsync
+@MapperScan(basePackages = {"com.soento"})
 @ComponentScan(basePackages = {"com.soento"})
 public abstract class WebApplication extends SpringBootServletInitializer {
 
