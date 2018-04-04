@@ -24,7 +24,7 @@
     </sql>
 
     <!-- 增-->
-    <insert id="insert" parameterType="com.juneyao.demo.web.pojo.po.TestPo">
+    <insert id="insert" parameterType="com.juneyao.demo.web.pojo.bo.TestBo">
         insert into  `TEST` (
             `ID`,
             `CODE`,
@@ -45,7 +45,7 @@
     </delete>
 
     <!-- 修-->
-    <update id="update" parameterType="com.juneyao.demo.web.pojo.po.TestPo">
+    <update id="update" parameterType="com.juneyao.demo.web.pojo.bo.TestBo">
         update `TEST`
         set
         <if test="code != null and code != ''">
@@ -62,7 +62,7 @@
 
     <!-- 查-->
     <select id="select" parameterType="com.juneyao.demo.web.pojo.bo.TestBo"
-            resultType="com.juneyao.demo.web.pojo.po.TestPo">
+            resultType="com.juneyao.demo.web.pojo.bo.TestBo">
         select
         <include refid="columns"/>
         from
