@@ -6,15 +6,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * @author yantao.zeng
  */
 @Slf4j
 @Controller
-@RequestMapping("/tools/codeGenerator")
+@RequestMapping("tools")
 public class CodeGeneratorController extends BaseController {
-    @RequestMapping("")
+    @RequestMapping("codeGenerator")
     public ModelAndView login() {
-        return result("login", "Login", null);
+        return template("tools/codeGenerator");
+    }
+
+    @RequestMapping("codeGenerator/generator")
+    public void generator(HttpServletResponse response) {
     }
 }
