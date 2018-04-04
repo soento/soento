@@ -1,4 +1,4 @@
-package com.soento.cms.common.bo;
+package com.soento.cms.common.pojo.dto;
 
 import com.soento.core.lang.BaseObject;
 import lombok.Data;
@@ -10,7 +10,7 @@ import org.hibernate.validator.constraints.NotBlank;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class LoginReq extends BaseObject {
+public class LoginDto extends BaseObject {
     @NotBlank(message = "{username.not.blank}")
     private String username;
     @NotBlank(message = "{password.not.blank}")

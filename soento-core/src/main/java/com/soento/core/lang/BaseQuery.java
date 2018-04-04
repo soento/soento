@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class BaseQuery extends BaseObject {
+public class BaseQuery extends BaseEntity {
     /**
      * 查询页数
      */

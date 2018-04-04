@@ -14,9 +14,9 @@ public class LoginUser extends BaseObject {
      */
     private String avatar;
     /**
-     * 用户编号
+     * 用户Id
      */
-    private String userCode;
+    private String userId;
     /**
      * 用户名
      */

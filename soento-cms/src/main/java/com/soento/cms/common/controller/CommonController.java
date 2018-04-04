@@ -1,6 +1,6 @@
 package com.soento.cms.common.controller;
 
-import com.soento.cms.common.bo.LoginReq;
+import com.soento.cms.common.pojo.dto.LoginDto;
 import com.soento.cms.common.service.CommonService;
 import com.soento.cms.core.lang.AuthModel;
 import com.soento.cms.core.support.BaseController;
@@ -34,7 +34,7 @@ public class CommonController extends BaseController {
 
     @RequestMapping("doLogin")
     @ResponseBody
-    public Resp doLogin(@Valid @RequestBody LoginReq req) {
+    public Resp doLogin(@Valid @RequestBody LoginDto req) {
         LoginUser user = commonService.doLogin(req);
         setUser(user);
         AuthModel auth = commonService.getUserAuth(user);

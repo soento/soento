@@ -1,6 +1,6 @@
 package com.soento.cms.common.service.impl;
 
-import com.soento.cms.common.bo.LoginReq;
+import com.soento.cms.common.pojo.dto.LoginDto;
 import com.soento.cms.common.service.CommonService;
 import com.soento.cms.core.lang.AuthModel;
 import com.soento.cms.core.lang.Menu;
@@ -22,10 +22,10 @@ import java.util.List;
 @Service
 public class CommonServiceImpl extends BaseService implements CommonService {
     @Override
-    public LoginUser doLogin(LoginReq req) {
+    public LoginUser doLogin(LoginDto req) {
         // TODO
         LoginUser login = new LoginUser();
-        login.setUserCode("user_code");
+        login.setUserId("id");
         login.setUserName("user_name");
         login.setNickName("nick_name");
         login.setAvatar("avatar");

@@ -37,6 +37,6 @@ public class TestController extends AbstractController {
         log.info((String) RedisHandler.get("aa"));
         log.info(testService.nextseq("SEQ_TEST"));
         log.info(testService.nextseq("SEQ_TEST", "CTTT"));
-        return success(testService.getAll());
+        return success(testService.test());
     }
 }

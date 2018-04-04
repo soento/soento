@@ -1,10 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.juneyao.demo.web.mapper.TestMapper">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.juneyao.demo.web.dao.TestDao">
 
-    <select id="getAll" resultType="TestEntity">
-        select * from test
+    <sql id="columns">
+            t.`ID` as id,
+            t.`CODE` as code,
+            t.`VALUE` as value,
+            t.`CODE_NAME` as codeName
+    </sql>
+    <sql id="conditions">
+        <if test="id != null and id != ''">
+            and t.`ID` = #{id}
+        </if>
+        <if test="code != null and code != ''">
+            and t.`CODE` = #{code}
+        </if>
+        <if test="value != null and value != ''">
+            and t.`VALUE` = #{value}
+        </if>
+        <if test="codeName != null and codeName != ''">
+            and t.`CODE_NAME` = #{codeName}
+        </if>
+    </sql>
+
+    <!-- 增-->
+    <insert id="insert" parameterType="com.juneyao.demo.web.pojo.entity.TestEntity">
+        insert into  `TEST` (
+            `ID`,
+            `CODE`,
+            `VALUE`,
+            `CODE_NAME`
+        ) values (
+            #{id},
+            #{code},
+            #{value},
+            #{codeName}
+        )
+    </insert>
+
+    <!-- 删-->
+    <delete id="delete" parameterType="String">
+        delete from `TEST`
+        where `ID` = #{id}
+    </delete>
+
+    <!-- 修-->
+    <update id="update" parameterType="com.juneyao.demo.web.pojo.entity.TestEntity">
+        update `TEST`
+        set
+        <if test="code != null and code != ''">
+            `CODE` = #{code},
+        </if>
+        <if test="value != null and value != ''">
+            `VALUE` = #{value},
+        </if>
+        <if test="codeName != null and codeName != ''">
+            `CODE_NAME` = #{codeName}
+        </if>
+        where `ID` = #{id}
+    </update>
+
+    <!-- 查-->
+    <select id="select" parameterType="com.juneyao.demo.web.pojo.query.TestQuery"
+            resultType="com.juneyao.demo.web.pojo.entity.TestEntity">
+        select
+        <include refid="columns"/>
+        from
+        `TEST` t
+        where 1 = 1
+        <include refid="conditions"/>
     </select>
 
 </mapper>

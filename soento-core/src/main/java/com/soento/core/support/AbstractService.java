@@ -33,6 +33,6 @@ public abstract class AbstractService {
             throw new RuntimeException("序列类型标识非四位字符");
         }
         String time = DateFormat.YYYYMMDDHHMISSMS.instance().format(new Date());
-        return type + time + sequenceDao.nextseq(sequence);
+        return type.toUpperCase() + time + sequenceDao.nextseq(sequence);
     }
 }
