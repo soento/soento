@@ -1,7 +1,7 @@
 package com.juneyao.demo.web.dao;
 
-import com.juneyao.demo.web.pojo.entity.TestEntity;
-import com.juneyao.demo.web.pojo.query.TestQuery;
+import com.juneyao.demo.web.pojo.po.TestPo;
+import com.juneyao.demo.web.pojo.bo.TestBo;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -9,12 +9,12 @@ import java.util.List;
 @Mapper
 public interface TestDao {
 
-    Long insert(TestEntity entity);
+    Long insert(TestBo entity);
 
     Long delete(String id);
 
-    Long update(TestEntity entity);
+    Long update(TestBo entity);
 
-    List<TestEntity> select(TestQuery query);
+    List<TestBo> select(TestBo query);
 
 }

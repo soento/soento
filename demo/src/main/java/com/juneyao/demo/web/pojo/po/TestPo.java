@@ -1,4 +1,4 @@
-package com.juneyao.demo.web.pojo.entity;
+package com.juneyao.demo.web.pojo.po;
 
 import com.soento.core.lang.BaseEntity;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.Data;
  * @author yantao.zeng
  */
 @Data
-public class TestEntity extends BaseEntity {
+public class TestPo extends BaseEntity {
     public final static String SEQUENCE = "SEQ_TEST";
     private String code;
     private String codeName;

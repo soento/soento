@@ -34,9 +34,6 @@ public class TestController extends AbstractController {
         log.info(SpringHandler.getValue("mybatis.mapper-locations"));
         log.info((String) RedisHandler.get("aa"));
         RedisHandler.set("aa", "bbbbb");
-        log.info((String) RedisHandler.get("aa"));
-        log.info(testService.nextseq("SEQ_TEST"));
-        log.info(testService.nextseq("SEQ_TEST", "CTTT"));
         return success(testService.test());
     }
 }
