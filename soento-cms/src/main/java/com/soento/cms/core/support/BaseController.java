@@ -101,15 +101,12 @@ public abstract class BaseController extends AbstractController {
         }
     }
 
-    protected ModelAndView result(String view, String name, BaseObject data, Plugin plugin) {
+    protected ModelAndView result(String view, String name, BaseObject data) {
         List<Privilege> privileges = getPrivileges();
         return builder()
                 .view(view)
                 .addObject(PAGE_DOMAIN, config.getDomain())
                 .addObject(PAGE_NAME, name)
-                .addObject(PAGE_SCRIPT, plugin.script)
-                .addObject(PAGE_STYLE, plugin.style)
-                .addObject(PAGE_CTRL, plugin.ctrl)
                 .addObject(PAGE_MENUS, menus(name, privileges))
                 .addObject(PAGE_BREADCRUMBS, breadcrumbs(name, privileges))
                 .addObject(PAGE_USER, getUser())
@@ -202,66 +199,20 @@ public abstract class BaseController extends AbstractController {
         }
     }
 
-    protected ModelAndView template(String name, BaseObject data, Plugin plugin) {
-        return result(VIEW_TEMPLATE, name, data, plugin);
-    }
-
-    protected ModelAndView template(String name, Plugin plugin) {
-        return template(name, null, plugin);
-    }
-
     protected ModelAndView template(String name, BaseObject data) {
-        return template(name, data, plugin());
+        return result(VIEW_TEMPLATE, name, data);
     }
 
     protected ModelAndView template(String name) {
-        return template(name, null, plugin());
-    }
-
-    protected ModelAndView page(String name, BaseObject data, Plugin plugin) {
-        return result(VIEW_PAGE, name, data, plugin);
-    }
-
-    protected ModelAndView page(String name, Plugin plugin) {
-        return page(name, null, plugin);
+        return template(name, null);
     }
 
     protected ModelAndView page(String name, BaseObject data) {
-        return page(name, data, plugin());
+        return result(VIEW_PAGE, name, data);
     }
 
     protected ModelAndView page(String name) {
-        return page(name, null, plugin());
+        return page(name, null);
     }
 
-    protected static BaseController.Plugin plugin() {
-        return new BaseController.Plugin();
-    }
-
-    protected static class Plugin {
-        private boolean script;
-        private boolean style;
-        private boolean ctrl;
-
-        Plugin() {
-            this.script = false;
-            this.style = false;
-            this.ctrl = false;
-        }
-
-        public BaseController.Plugin script(boolean script) {
-            this.script = script;
-            return this;
-        }
-
-        public BaseController.Plugin style(boolean style) {
-            this.style = style;
-            return this;
-        }
-
-        public BaseController.Plugin ctrl(boolean ctrl) {
-            this.ctrl = ctrl;
-            return this;
-        }
-    }
 }

@@ -9,9 +9,7 @@
 <link rel="stylesheet" href="${domain}assets/font-awesome/4.5.0/css/font-awesome.min.css"/>
 
 <!-- page specific plugin styles -->
-<#if name?? && style?? && 'true' == style?string('true','false')>
-    <#include "../style/${name}.ftl">
-</#if>
+<#include "../style/${name}.ftl">
 
 <!-- text fonts -->
 <link rel="stylesheet" href="${domain}assets/css/fonts.googleapis.com.css"/>

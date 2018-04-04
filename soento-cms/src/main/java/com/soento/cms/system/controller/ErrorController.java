@@ -1,4 +1,4 @@
-package com.soento.cms.common.controller;
+package com.soento.cms.system.controller;
 
 import com.soento.cms.core.support.BaseController;
 import org.springframework.stereotype.Controller;

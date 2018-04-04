@@ -4,7 +4,7 @@
             <div class="center">
                 <h1>
                     <i class="ace-icon fa fa-leaf green"></i>
-                    <span class="red"><@spring.messageText code="application.simple.name" text="SOENTO"/></span>
+                    <span class="red"><@spring.messageText code="application.simple.name" text="CMS"/></span>
                     <span class="white" id="id-text2"><@spring.messageText code="application.full.name" text="管理系统"/></span>
                 </h1>
                 <h4 class="blue" id="id-company-text">&copy; <@spring.messageText code="company.name" text="索恩托工作室"/></h4>

@@ -1,7 +1,7 @@
-package com.soento.cms.common.controller;
+package com.soento.cms.system.controller;
 
-import com.soento.cms.common.pojo.dto.LoginDto;
-import com.soento.cms.common.service.CommonService;
+import com.soento.cms.system.pojo.dto.LoginDto;
+import com.soento.cms.system.service.SystemService;
 import com.soento.cms.core.lang.AuthModel;
 import com.soento.cms.core.support.BaseController;
 import com.soento.core.annotation.Auth;
@@ -23,21 +23,21 @@ import javax.validation.Valid;
  */
 @Slf4j
 @Controller
-public class CommonController extends BaseController {
+public class SystemController extends BaseController {
     @Autowired
-    private CommonService commonService;
+    private SystemService systemService;
 
     @RequestMapping("login")
     public ModelAndView login() {
-        return result("login", "Login", null, plugin().ctrl(true));
+        return result("login", "login", null);
     }
 
     @RequestMapping("doLogin")
     @ResponseBody
     public Resp doLogin(@Valid @RequestBody LoginDto req) {
-        LoginUser user = commonService.doLogin(req);
+        LoginUser user = systemService.doLogin(req);
         setUser(user);
-        AuthModel auth = commonService.getUserAuth(user);
+        AuthModel auth = systemService.getUserAuth(user);
         setAuthModel(auth);
         return success();
     }
@@ -45,7 +45,7 @@ public class CommonController extends BaseController {
     @RequestMapping("index")
     @Auth(text = "欢迎页", type = AuthType.PAGE)
     public ModelAndView index() {
-        return template("Index");
+        return template("index");
     }
 
     @RequestMapping("doLogout")

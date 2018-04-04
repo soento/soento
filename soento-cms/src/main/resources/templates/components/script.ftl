@@ -20,9 +20,7 @@
 <script src="${domain}assets/layer/layer.js"></script>
 
 <!-- page specific plugin scripts -->
-<#if name?? && script?? && 'true' == script?string('true','false')>
-    <#include "../script/${name}.ftl">
-</#if>
+<#include "../script/${name}.ftl">
 
 <!-- ace scripts -->
 <script src="${domain}assets/js/ace-elements.min.js"></script>
@@ -30,11 +28,9 @@
 
 <!-- soento scripts -->
 <script src="${domain}assets/js/soento.js"></script>
-<#if name != "login">
+<#if name?? && name != "Login">
 <script src="${domain}assets/ctrl/template.js"></script>
 </#if>
 <!-- inline scripts related to this page -->
-<#if name?? && ctrl?? && 'true' == ctrl?string('true','false')>
 <script src="${domain}assets/ctrl/${name}.js"></script>
-</#if>
 <!-- basic scripts -->

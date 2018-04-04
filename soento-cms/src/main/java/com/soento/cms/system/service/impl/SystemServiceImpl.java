@@ -1,7 +1,7 @@
-package com.soento.cms.common.service.impl;
+package com.soento.cms.system.service.impl;
 
-import com.soento.cms.common.pojo.dto.LoginDto;
-import com.soento.cms.common.service.CommonService;
+import com.soento.cms.system.pojo.dto.LoginDto;
+import com.soento.cms.system.service.SystemService;
 import com.soento.cms.core.lang.AuthModel;
 import com.soento.cms.core.lang.Menu;
 import com.soento.cms.core.lang.Role;
@@ -20,7 +20,7 @@ import java.util.List;
  */
 @Slf4j
 @Service
-public class CommonServiceImpl extends BaseService implements CommonService {
+public class SystemServiceImpl extends BaseService implements SystemService {
     @Override
     public LoginUser doLogin(LoginDto req) {
         // TODO
@@ -45,12 +45,12 @@ public class CommonServiceImpl extends BaseService implements CommonService {
         Menu menu = new Menu();
         menu.setLink("/tools");
         menu.setText("开发工具");
-        menu.setName("devtools");
+        menu.setName("Tools");
         List<Menu> subMenus = new ArrayList<>();
         Menu sub = new Menu();
-        sub.setLink("/tools/mybatis");
-        sub.setText("Mybatis工具");
-        sub.setName("mybatis");
+        sub.setLink("/tools/codeGenerator");
+        sub.setText("代码生成");
+        sub.setName("ToolsCodeGenerator");
         subMenus.add(sub);
         menu.setChildren(subMenus);
         meuns.add(menu);

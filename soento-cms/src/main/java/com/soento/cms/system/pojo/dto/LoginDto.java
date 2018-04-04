@@ -1,4 +1,4 @@
-package com.soento.cms.common.pojo.dto;
+package com.soento.cms.system.pojo.dto;
 
 import com.soento.core.lang.BaseObject;
 import lombok.Data;
